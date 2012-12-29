@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-echo "No tests available yet. "
+echo "No tests available"
+

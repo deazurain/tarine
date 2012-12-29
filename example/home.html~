@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tarine example page</title>
+		<link rel="stylesheet" type="text/css" href="/style/example"/>
+		<script src="/script/example"></script>
+	</head>
+	<body>
+		<div id="view">
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+		<div id="page">
+			<header>
+				<a id="logo" href="#home"></a>
+				<nav id="nav-internal">
+					<ul>
+						<li class="active">
+							<a href="#blog"><p>blog</p></a>
+						</li><li>
+							<a href="#portfolio"><p>portfolio</p></a>
+						</li>
+					</ul>
+				</nav>
+				<nav id="nav-external">
+					<ul><li>
+							<a id="fullscreen-enable" href=""></a>
+						</li><li class="hidden">
+							<a id="fullscreen-disable" href=""></a>
+						</li><li>
+							<a id="github" href="#github"></a>
+						</li><li>
+							<a id="facebook" href="#facebook"></a>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<div id="main">
+				<a class='article' href="#welcome">
+					<div class="title">
+						<h1>welcome</h1>
+						<span>
+							<time datetime="2012-12-29">today</time><p>more &hellip;</p>
+						</span>
+					</div>
+					<p>Writing html is so much fun</p>
+				</a>
+				<a class="article" href="#node.js">
+					<div class="title">
+						<h1>node.js</h1>
+						<span>
+							<time datetime="2012-12-29">today</time><p>more &hellip;</p>
+						</span>
+					</div>
+					<p>node.js is freaking awesome. There are so many options it is incredible</p>
+					<p>Do with it whatever you want!</p>
+				</a>
+				<div class="clear"></div>
+				<a class="article" href="#lange-titel-baby">
+					<div class="title">
+						<h1>Eens kijken hoe dit gaat met een lange titel</h1>
+						<span>
+							<time datetime="2012-12-29">today</time><p>more &hellip;</p>
+						</span>
+					</div>
+					<p>Ik wordt zo tantoe gezond. Het is nu 7.01 en ik slaap nog niet. Heel arelaxed. Ik merk dat mijn ogen moe worden maar deze website is zo vet. </p>
+				</a>
+				<a class="article" href="#PMG">
+					<div class="title">
+						<h1>Project Mick Gezond</h1>
+						<span>
+							<time datetime="2012-12-29">today</time><p>more &hellip;</p>
+						</span>
+					</div>
+					<p>Ik wordt zo tantoe gezond. Het is nu 7.01 en ik slaap nog niet. Heel arelaxed. Ik merk dat mijn ogen moe worden maar deze website is zo vet. </p>
+				</a>
+				<div class="clear"></div>
+				<a class="article" href="#nice">
+					<div class="title">
+						<h1>vet nice dingen</h1>
+						<span>
+							<time datetime="2012-11-29">2012/11/29</time><p>more &hellip;</p>
+						</span>
+					</div>
+					<p>node.js is freaking awesome</p>
+					<p>Do with it whatever you want!</p>
+					<img src="mountain-house.jpg"/>
+				</a>
+				<a class="article" href="#muchos-contentos">
+					<div class="title">
+						<h1>Muchos contentos!</h1>
+						<span>
+							<time datetime="2012-11-29">2012/11/29</time><p>more &hellip;</p>
+						</span>
+					</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis sem at sapien semper semper. Maecenas dignissim nibh in tortor aliquam vitae pulvinar lectus semper. Aliquam eu urna quam, sed interdum ante. Praesent ultricies magna ac massa adipiscing posuere. Aliquam volutpat placerat arcu, vitae viverra justo dictum et. Fusce aliquam, elit at pretium accumsan, lacus sem tristique lectus, pulvinar pellentesque</p>
+					<img src="forest-road.jpg"/>
+					<p>massa neque ut eros. Nullam faucibus risus at lacus dignissim vel ornare lectus aliquet. Pellentesque dignissim iaculis varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id molestie sem. Praesent sagittis rhoncus tellus et auctor. Morbi dignissim posuere ipsum sit amet malesuada. Ut magna ipsum, rhoncus quis hendrerit sed, laoreet id libero. Proin imperdiet ultrices convallis. Praesent porta sem nec augue egestas tincidunt lobortis odio sollicitudin. Sed est dolor, sollicitudin vel accumsan vitae, ultricies eu dolor.</p>
+				</a>
+				<div class="clear"></div>
+				<a class="article" href="#uneven">
+					<div class="title">
+						<h1>Uneven number of articles</h1>
+						<span>
+							<time datetime="2010-11-1">2010/11/1</time><p>more &hellip;</p>
+						</span>
+					</div>
+					<p>Important test case</p>
+				</a>
+				<div class="clear"></div>
+			</div>
+			<footer>
+				<div>
+					<div id="me"></div>
+					<div id="interests">
+						<p>Personal interests include:</p>
+						<ul>
+							<li>
+								<p>Delicious food</p>
+							</li><li>
+								<p>Web development</p>
+							</li><li>
+								<p>Snowboarding, indoor climbing and sports in general</p>
+							</li><li>
+								<p>Gaming</p>
+							</li>
+						</ul>
+					</div>
+					<div id="friends">
+						<p>My awesome colleagues!</p>
+						<ul>
+							<li>
+								<a href="http://www.justren.nl">Edwin de Jongh</a>, a young but talented designer who motivates me and helps me out from time to time
+							</li><li>
+								<a href="#jelle">Jelle Licht</a>, my eternal friend and rival. Currently works on a robot with me at the Technical University of Delft
+							</li>
+						</ul>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

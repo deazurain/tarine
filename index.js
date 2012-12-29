@@ -1,1 +1,1 @@
-module.exports = require('./tarine');
+module.exports = require('./lib/server');

@@ -1,5 +1,5 @@
 
-var tarine = module.exports;
+var tarine = {};
 
 // initialize some thingies
 var pkg = require('./package.json');
@@ -11,15 +11,25 @@ var site = require('./lib/site');
 
 tarine.start = function(args) {
 
-	console.log('Starting tarine webserver');
+	console.log('Starting ' + tarine.name + '@' + tarine.version + ' webserver...');
 
   var sites = {};
 
   args.forEach(function(path) {
-    sites[path] = site.load(path);
+    try {
+      var s = site.load(path);
+      sites[s.directory] = s;
+    } catch (e) {
+      console.log('Failed to load website "' + path + '", ');
+      console.log(e);
+    }
   });
 
-  console.log(sites);
+  console.log('Starting websites...');
+  for(dir in sites) {
+    sites[dir].start();
+  }
 
 }
 
+module.exports = tarine;
