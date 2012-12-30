@@ -1,8 +1,8 @@
-var Tarine = require('tarine');
+var tarine = require('tarine');
 var path = require('path');
 var fs = require('fs');
 
-var server = new Tarine({
+var server = new tarine.Server({
 	ip: '127.0.0.1',
 	port: 80
 });
@@ -45,7 +45,7 @@ function typesHandler(type, resource, request, response) {
 }
 
 server.dispatcher = function(request, response) {
-	var regex = /^\/([a-z]+)\/([\w\-\.]+(?:\/[\w\-\.]+)*)(?:\/)?$/;
+	var regex = /^\/([a-z]+)\/([\w\-\.]+(?:\/[\w\-\.]+)*)$/;
 	var input = unescape(request.urlParsed.path);
 	var result = regex.exec(input);
 	if (result) {
