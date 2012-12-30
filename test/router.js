@@ -3,50 +3,57 @@ var Router = require('../lib/router');
 
 var router = new Router();
 
-function handler(type, path) {
-	var results = [];
-	var ext = handler.extension(path);
-	var extensions = handler.types[type];
+var staticHandler = (function() {
 
-	path = './' + type + '/' + path;
+	var self = function(type, path) {
+		var results = [];
+		var ext = self.extension(path);
+		var extensions = self.types[type];
 
-	if (!extensions) {
-		throw new Error('type ' + type + ' not defined in handler.types');
+		path = './' + type + '/' + path;
+
+		if (!extensions) {
+			throw new Error('type ' + type + ' not defined in handler.types');
+		}
+
+		// give defined extension precedence
+		// but allow file.less to be file.less,
+		// file.less.css and file.less.less
+		if (ext.length && extensions[ext]) {
+			results.push(path);
+		}
+
+		// add a path for each extension
+		for (var i = 0, l = extensions.length; i < l; i++) {
+			results.push(path + '.' + extensions[i]);
+		}
+
+		return results;
 	}
 
-	// give defined extension precedence
-	if (ext.length && extensions[ext]) {
-		results.push(path);
+	self.types = {
+		'script': ['js'],
+		'style': ['css', 'less']
+	};
+
+	/* allow looking up if a extension is contained for a type */
+	for (var key in self.types) {
+		var t = self.types[key];
+		for (var i = 0, l = t.length; i < l; i++) {
+			t[t[i]] = true;
+		}
 	}
 
-	// add a path for each extension
-	for (var i = 0, l = extensions.length; i < l; i++) {
-		results.push(path + '.' + extensions[i]);
-	}
+	self.extension = function(path) {
+		var match = /\.([a-z0-9]+)$/.exec(path);
+		return match ? match[1] : '';
+	};
 
-	return results;
-}
+	return self;
+}());
 
-handler.types = {
-	'script': ['js'],
-	'style': ['css', 'less']
-};
-
-/* allow looking up if a extension is contained for a type */
-for (var key in handler.types) {
-	var t = handler.types[key];
-	for (var i = 0, l = t.length; i < l; i++) {
-		t[t[i]] = true;
-	}
-}
-
-handler.extension = function(path) {
-	var match = /\.([a-z0-9]+)$/.exec(path);
-	return match ? match[1] : '';
-};
-
-router.rule(/^\/(script)\/([\w\-\.]+(?:\/[\w\-\.]+)*)$/, handler);
-router.rule(/^\/(style)\/([\w\-\.]+(?:\/[\w\-\.]+)*)$/, handler);
+router.rule(/^\/(script)\/([\w\-\.]+(?:\/[\w\-\.]+)*)$/, staticHandler);
+router.rule(/^\/(style)\/([\w\-\.]+(?:\/[\w\-\.]+)*)$/, staticHandler);
 
 console.log(router.route('/script/valid'));
 console.log(router.route('/script/valid.js'));
